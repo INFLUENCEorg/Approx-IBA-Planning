@@ -1,0 +1,7 @@
+numpy==1.19.5
+tensorflow==1.14.0
+scypi==1.5.4
+sklearn==2.1.0
+matplotlib==3.3.4
+pandas==1.1.5
+pyyaml==5.4.1
