@@ -1,0 +1,62 @@
+parameters:
+  
+  name: 'prova'
+  path_name: 'Results/test_random/'
+
+  #State space s=(x0,x1,x2), x0 - state of the charge, x1 - plan, x2 - MR_position
+  #position of the MR {0,1, ..., n_states-1, target}
+  n_states: 3
+  # satellite charge {0,1, ... , max_charge}
+  max_charge: 6
+
+  #Policies
+  #possible choices (min_level, rand, rand_min_level)
+  pi_satellite: 'rand_pi' 
+  #if pi_satellite is min_level type, iff state of charge is lower than min_level, then    a_sat=plan.
+  min_level: 2 
+  #probability the satellite action plan fails
+  policy_fail: 0.1
+  #Only implemented random policy for the rover
+  pi_rover: 'rand'
+
+  #Transition parameters 
+  #probability the rover fails to move when plan off
+  p_fail: 0.8 
+  #Consumptions of the charge when the plann on
+  consumption: 2
+  #when plan off, recharge according to a distribution centered in state_charge+recharge
+  recharge: 2
+  #probability sat succeeds in keeping the plan P(plan_t+1=on |  a_sat_t = on, plan_t=on)
+  p_keep_plan: 1.
+
+  #Rewards parameters	
+  r_succ: 0 #succeed in moving forward
+  r_fail: -0.5 #fail in moving forward
+  max_r: 1 #reach the state n_states=target
+  
+  #Initial belief
+  #p_distribution over x0,x1,x2
+  b_init: [[0,0,0,0.25,0.25,0.25,0.25], [1,0], [1,0,0,0]]
+
+  #Simulation parameters
+  hor: 5
+  #number of runs of the simulation in the MR env to collect data 
+  n_iter: 10000
+  #number of iteration of the entire experiment over compute mean and std
+  n_iter_training: 10
+  
+
+  #Network parameters
+  train_test_split: 0.9
+  #number of instatiation of the sources of influence (classes to be predicted)
+  n_classes: 2
+  dim_d_set: 1
+  n_epochs: 6
+
+  learning_rate: 0.001
+  batch_size: 100
+  n_units: 8
+  loss_burning: 0
+
+  #Interval for epochs
+  frac_epochs: 1
