@@ -1,10 +1,11 @@
 # -*- coding: utf-8 -*-
 
-import numpy as np
 import time
-from MarsRover import MR_env
+from environments.MarsRover.simulator import MR_env
 import pdb
-from utility import index_to_d_set, d_set_to_index, generate_d_set
+from environments.MarsRover.utility import index_to_d_set, d_set_to_index, generate_d_set
+import numpy as np
+
 np.random.seed(42)
 
 class IALM (MR_env):

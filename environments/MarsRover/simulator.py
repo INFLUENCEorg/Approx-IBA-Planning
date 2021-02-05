@@ -2,7 +2,7 @@
 
 import numpy as np
 import time
-from utility import index_to_d_set, d_set_to_index,  generate_d_set
+from environments.MarsRover.utility import index_to_d_set, d_set_to_index,  generate_d_set
 
 np.random.seed(42)
 

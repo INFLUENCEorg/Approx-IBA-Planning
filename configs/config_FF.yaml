@@ -1,0 +1,58 @@
+parameters:
+
+  env_type: 'FF'
+  name: 'check'
+  
+  #State space
+  n_fact: 3
+  f_lev: 2
+
+  #Agents 
+  n_agents: 2
+  n_loc_agents: 1 
+  policies: ['right','rand']
+  
+  #Initial distributions
+  b_init: [[0.,1], [0,1], [0,1]]
+
+  #Transitions parameters
+  #Prob fire persists at the same level once one fireman goes and other neighbouring houses are burning (if the house is burning)
+  t1: 0.4
+  #Prob that the fire level increases if none of the fire fighters goes and other neighbouring houses are burning
+  t2: 0.9
+  #Prob the fire level increase if none of the fire fighters goes and none of the neighbouring houses burn
+  t3: 0.4
+
+  #Simulation parameters
+  #The agent receives hor rewards 
+  hor: 6
+  #number of runs of the simulation in the MR env to collect data 
+  n_iter: 10000
+  #number of iteration of the entire experiment over compute mean and std
+  n_iter_training: 10
+  
+  #Network parameters
+  train_test_split: 0.9
+  #number of instatiation of the sources of influence (classes to be predicted)
+  n_classes: 2
+  dim_d_set: 3
+  n_epochs: 16
+
+  learning_rate: 0.001
+  batch_size: 100
+  n_units: 16
+  loss_burning: 0
+  frac_epochs: 3
+
+
+
+  
+
+
+  
+
+
+  
+
+
+

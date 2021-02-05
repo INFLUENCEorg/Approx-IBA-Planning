@@ -1,7 +1,7 @@
 parameters:
   
-  name: 'prova'
-  path_name: 'Results/test_random/'
+  env_type: 'MR'
+  name: 'check'
 
   #State space s=(x0,x1,x2), x0 - state of the charge, x1 - plan, x2 - MR_position
   #position of the MR {0,1, ..., n_states-1, target}
@@ -11,7 +11,7 @@ parameters:
 
   #Policies
   #possible choices (min_level, rand, rand_min_level)
-  pi_satellite: 'rand_pi' 
+  pi_satellite: 'rand_min_level' 
   #if pi_satellite is min_level type, iff state of charge is lower than min_level, then    a_sat=plan.
   min_level: 2 
   #probability the satellite action plan fails
@@ -43,7 +43,7 @@ parameters:
   #number of runs of the simulation in the MR env to collect data 
   n_iter: 10000
   #number of iteration of the entire experiment over compute mean and std
-  n_iter_training: 10
+  n_iter_training: 2
   
 
   #Network parameters
@@ -51,7 +51,7 @@ parameters:
   #number of instatiation of the sources of influence (classes to be predicted)
   n_classes: 2
   dim_d_set: 1
-  n_epochs: 6
+  n_epochs: 16
 
   learning_rate: 0.001
   batch_size: 100

@@ -1,0 +1,39 @@
+parameters:
+  
+  env_type: 'TG'
+  name: 'check'
+
+  dim_lane: 4
+  p_out_in: 1.
+  p_in: 0.8
+  
+  policies: ['rand','e','rand','w']
+
+
+  #Simulation parameters
+  hor: 8
+  #number of runs of the simulation in the MR env to collect data 
+  n_iter: 1000
+  #number of iteration of the entire experiment over compute mean and std
+  n_iter_training: 10
+  
+  b0: [[1,0,1,1],[1,0,0,1],[0,1,0,1],[1,0,0,1]]
+ #[[0,1,0,0,0,1,0,1],[0,1,0,0,0,1,0,1], [0,1,0,0,1,0,0,1], [0,1,0,1,0,0,0,1]]
+
+
+  #Network parameters
+  train_test_split: 0.9
+  #number of instatiation of the sources of influence (classes to be predicted)
+  n_classes: 2
+  n_outputs: 2
+
+  dim_d_set: 2
+  n_epochs: 17
+
+  learning_rate: 0.001
+  batch_size: 100
+  n_units: 8
+
+  #Interval for epochs
+  frac_epochs: 4
+
